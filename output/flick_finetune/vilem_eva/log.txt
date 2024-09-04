@@ -1,0 +1,4 @@
+Train Epoch: [0]  [    0/17710]  eta: 2 days, 10:19:35  lr: 0.000010  loss_ita: 2.4065  loss_tec_l: 0.0000  loss_det_l: 0.0000  loss_tec_g: 1.6114  loss_det_g: 1.7578  time: 11.8563  data: 2.5238  max mem: 15490
+Train Epoch: [0]  [    0/17710]  eta: 2 days, 7:49:44  lr: 0.000010  loss_ita: 2.4065  loss_tec_l: 0.0000  loss_det_l: 0.0000  loss_tec_g: 1.6114  loss_det_g: 1.7578  time: 11.3486  data: 2.2574  max mem: 15490
+Train Epoch: [0]  [    0/17710]  eta: 2 days, 10:15:46  lr: 0.000010  loss_ita: 2.4065  loss_tec_l: 0.0000  loss_det_l: 0.0000  loss_tec_g: 1.6114  loss_det_g: 1.7578  time: 11.8434  data: 2.4421  max mem: 15490
+Train Epoch: [0]  [    0/17710]  eta: 2 days, 7:41:56  lr: 0.000010  loss_ita: 2.4065  loss_tec_l: 1.2024  loss_det_l: 1.2020  loss_tec_g: 0.3223  loss_det_g: 0.3516  time: 11.3222  data: 2.2566  max mem: 15490

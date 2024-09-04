@@ -1,0 +1,33 @@
+train_file:  ['data/flickr30k_train.json']
+val_file: 'data/flickr30k_val.json'                
+test_file: 'data/flickr30k_test.json'
+image_root: '/group/30042/public_datasets/F30K'
+
+# model config
+bert_config: 'configs/config_bert.json'
+vit_name: 'EVA02-CLIP-L-14'
+vit_weights: '/group/30042/uasonchen/projects/EVA/EVA-CLIP/weights/EVA02_CLIP_L_psz14_s4B.pt'
+grad_checkpointing: True
+image_res: 336
+queue_size: 65536
+momentum: 0.995
+vision_width: 768
+embed_dim: 768
+temp: 0.07
+k_test: 256
+use_grad_ckpt: True
+grad_ckpt_layer: 4
+add_ted_head: True
+add_mlm_head: True
+
+# training and testing config
+batch_size_train: 32
+batch_size_test: 64
+alpha: 0.4
+distill: True
+warm_up: True
+
+optimizer: {opt: adamW, lr: 1e-5, weight_decay: 0.02} 
+schedular: {sched: cosine, lr: 1e-5, epochs: 10, min_lr: 1e-6, decay_rate: 1, warmup_lr: 1e-5, warmup_epochs: 1, cooldown_epochs: 0}
+rep_sampler: {func: 'mlm', prob: 0.15, filter_sw: False, max_rep_num: 8, min_rep_num: 0}
+rep_model: {strategy: "random", topk: 20, consider_num: 30, avoid_stopwords: False, rerank: False, in_place: False}

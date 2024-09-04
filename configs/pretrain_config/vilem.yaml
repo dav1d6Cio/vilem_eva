@@ -1,0 +1,35 @@
+# tec+ted, mlm sampling
+train_file: ['json_pretrain/filted_data/vg_filt_pre.json',
+               'json_pretrain/filted_data/sbu_clean.json',
+               'json_pretrain/filted_data/coco_filt.json',
+               'json_pretrain/filted_data/cc3m_val_filt.json',
+               'json_pretrain/filted_data/cc3m_train_clean.json'
+               ]
+test_file: 'data/coco_test.json'
+image_root: '/group/30042/uasonchen/datasets/coco'
+# each train_file (json) contains a python list where each item is {'image': img_path, 'caption': text or list_of_text }               
+
+# training and testing config
+batch_size: 64
+alpha: 0.4
+k_test: 256
+
+# model config
+bert_config: 'configs/config_bert.json'
+vit_name: 'EVA02-CLIP-L-14'
+vit_weights: '/group/30042/uasonchen/projects/EVA/EVA-CLIP/weights/EVA02_CLIP_L_psz14_s4B.pt'
+grad_checkpointing: True
+image_res: 224
+vision_width: 768
+embed_dim: 768
+temp: 0.07
+mlm_probability: 0.15
+queue_size: 65536
+momentum: 0.995
+add_ted_head: True
+add_mlm_head: True
+
+optimizer: {opt: adamW, lr: 2e-4, weight_decay: 0.02, vit_lr_coeff: 1e-2}
+schedular: {sched: cosine, lr: 2e-4, epochs: 20, min_lr: 1e-5, decay_rate: 1, warmup_lr: 1e-5, warmup_epochs: 20, cooldown_epochs: 0, lr_coeff: [1, 1, 1, 1, 1e-2, 1e-2]}
+rep_sampler: {func: 'mlm', prob: 0.15, filter_sw: False, max_rep_num: 8, min_rep_num: 0}
+rep_model: {strategy: 'random', topk: 20, consider_num: 30, avoid_stopwords: False, rerank: False}

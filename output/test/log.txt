@@ -1,0 +1,2 @@
+Train Epoch: [0]  [    0/77731]  eta: 13 days, 3:32:58  lr: 0.000010  loss_ita: 11.2972  loss_tec_l: 8.5843  loss_det_l: 3.9573  loss_tec_g: 1.5526  loss_det_g: 0.9126  time: 14.6142  data: 6.4827  max mem: 17462
+Train Epoch: [0]  [    0/77731]  eta: 10 days, 3:27:00  lr: 0.000010  loss_ita: 11.2972  loss_tec_l: 8.5843  loss_det_l: 3.9573  loss_tec_g: 1.5526  loss_det_g: 0.9126  time: 11.2750  data: 2.8283  max mem: 17462

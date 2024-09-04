@@ -1,0 +1,37 @@
+# command line: Pretrain.py --config ./configs/pretrain_config/vilem_eva.yaml --output_dir output/test --model models.vilem_eva.ALBEF --beta 0.2
+
+add_mlm_head: true
+add_ted_head: true
+alpha: 0.4
+batch_size: 64
+bert_config: configs/config_bert.json
+embed_dim: 768
+grad_checkpointing: true
+image_res: 224
+image_root: /group/30042/uasonchen/datasets/coco
+k_test: 256
+mlm_probability: 0.15
+momentum: 0.995
+optimizer: {lr: 0.0002, opt: adamW, vit_lr_coeff: 0.01, weight_decay: 0.02}
+queue_size: 65536
+rep_model: {avoid_stopwords: false, consider_num: 30, rerank: false, strategy: random,
+  topk: 20}
+rep_sampler: {filter_sw: false, func: mlm, max_rep_num: 8, min_rep_num: 0, prob: 0.15}
+schedular:
+  cooldown_epochs: 0
+  decay_rate: 1
+  epochs: 20
+  lr: 0.0002
+  lr_coeff: [1, 1, 1, 1, 0.01, 0.01]
+  min_lr: 1e-05
+  sched: cosine
+  warmup_epochs: 20
+  warmup_lr: 1e-05
+temp: 0.07
+test_file: data/coco_test.json
+train_file: [json_pretrain/filted_data/vg_filt_pre.json, json_pretrain/filted_data/sbu_clean.json,
+  json_pretrain/filted_data/coco_filt.json, json_pretrain/filted_data/cc3m_val_filt.json,
+  json_pretrain/filted_data/cc3m_train_clean.json]
+vision_width: 768
+vit_name: EVA02-CLIP-L-14
+vit_weights: /group/30042/uasonchen/projects/EVA/EVA-CLIP/weights/EVA02_CLIP_L_psz14_s4B.pt

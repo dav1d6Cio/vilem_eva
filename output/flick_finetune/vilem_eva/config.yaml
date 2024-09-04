@@ -1,0 +1,32 @@
+# command line: Retrieval.py --config ./configs/finetune_config/coco.yaml --model models.vilem_eva.ALBEF --beta 0.2 --output_dir output/flick_finetune/vilem_eva --checkpoint /group/30042/uasonchen/ALBEF/output/vilem_eva_coeff1e-2/checkpoint_00.pth
+
+add_mlm_head: true
+add_ted_head: true
+alpha: 0.4
+batch_size_test: 64
+batch_size_train: 32
+bert_config: configs/config_bert.json
+distill: true
+embed_dim: 768
+grad_checkpointing: true
+grad_ckpt_layer: 4
+image_res: 336
+image_root: /group/30042/uasonchen/datasets/coco
+k_test: 256
+momentum: 0.995
+optimizer: {lr: 1e-05, opt: adamW, weight_decay: 0.02}
+queue_size: 65536
+rep_model: {avoid_stopwords: false, consider_num: 30, in_place: false, rerank: false,
+  strategy: random, topk: 20}
+rep_sampler: {filter_sw: false, func: mlm, max_rep_num: 8, min_rep_num: 0, prob: 0.15}
+schedular: {cooldown_epochs: 0, decay_rate: 1, epochs: 5, lr: 1e-05, min_lr: 1e-06,
+  sched: cosine, warmup_epochs: 1, warmup_lr: 1e-05}
+temp: 0.07
+test_file: data/coco_test.json
+train_file: [data/coco_train.json]
+use_grad_ckpt: true
+val_file: data/coco_val.json
+vision_width: 768
+vit_name: EVA02-CLIP-L-14
+vit_weights: /group/30042/uasonchen/projects/EVA/EVA-CLIP/weights/EVA02_CLIP_L_psz14_s4B.pt
+warm_up: true
