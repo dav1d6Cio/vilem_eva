@@ -1,6 +1,6 @@
 # ViLEM (CVPR2023)
 
-This repository provides an unofficial implementation of the following paper:
+This repository provides an official implementation of the following paper:
 
 > [ViLEM: Visual-Language Error Modeling for Image-Text Retrieval](https://openaccess.thecvf.com/content/CVPR2023/html/Chen_ViLEM_Visual-Language_Error_Modeling_for_Image-Text_Retrieval_CVPR_2023_paper.html)
 >
