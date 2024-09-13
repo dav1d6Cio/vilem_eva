@@ -10,7 +10,7 @@ This repository provides an official implementation of the following paper:
 
 ## Overview
 
-ViLEM adopt a “dual-encoder” where two encoders are used to extract image and text representations. 
+ViLEM adopt a “dual-encoder” where two encoders are used to extract semantic representation of image, video, and text. 
 
 ![method](method.JPG)
 
